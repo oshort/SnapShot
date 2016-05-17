@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SnapShot" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sru-hY-8Kl">
+                                <rect key="frame" x="80" y="550" width="77" height="30"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="TakeButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pcw-e1-W6c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9i-z0-rVZ">
+                                <rect key="frame" x="435" y="550" width="83" height="30"/>
+                                <state key="normal" title="Camera Roll"/>
+                                <connections>
+                                    <action selector="ChooseButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="PBh-RX-CQY"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CnR-Hi-0uG">
+                                <rect key="frame" x="20" y="28" width="560" height="477"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c16-nJ-fBt">
+                                <rect key="frame" x="20" y="513" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Aspect Fit"/>
+                                    <segment title="Aspect Fill"/>
+                                    <segment title="Scale to Fill"/>
+                                </segments>
+                                <connections>
+                                    <action selector="contentModeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gxI-wX-76v"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CnR-Hi-0uG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0bb-fr-rpV"/>
+                            <constraint firstItem="Sru-hY-8Kl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="134-th-eR5"/>
+                            <constraint firstItem="i9i-z0-rVZ" firstAttribute="baseline" secondItem="Sru-hY-8Kl" secondAttribute="baseline" id="4t3-wi-EcG"/>
+                            <constraint firstItem="CnR-Hi-0uG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AKE-Rq-BPK"/>
+                            <constraint firstAttribute="bottom" secondItem="i9i-z0-rVZ" secondAttribute="bottom" constant="20" symbolic="YES" id="CpR-BC-quA"/>
+                            <constraint firstItem="CnR-Hi-0uG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="KOa-Tg-KPG"/>
+                            <constraint firstItem="i9i-z0-rVZ" firstAttribute="top" secondItem="c16-nJ-fBt" secondAttribute="bottom" constant="9" id="MXf-vu-CNq"/>
+                            <constraint firstItem="c16-nJ-fBt" firstAttribute="top" secondItem="CnR-Hi-0uG" secondAttribute="bottom" constant="8" id="YJ0-Au-3Or"/>
+                            <constraint firstItem="i9i-z0-rVZ" firstAttribute="top" secondItem="CnR-Hi-0uG" secondAttribute="bottom" constant="45" id="ZUQ-zK-64h"/>
+                            <constraint firstItem="c16-nJ-fBt" firstAttribute="width" secondItem="CnR-Hi-0uG" secondAttribute="width" id="iTx-iW-dRm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i9i-z0-rVZ" secondAttribute="trailing" constant="62" id="kUz-4G-pLm"/>
+                            <constraint firstItem="c16-nJ-fBt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l5n-oB-Lui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentModeSegmentedControl" destination="c16-nJ-fBt" id="BXg-nX-Xt5"/>
+                        <outlet property="imageView" destination="CnR-Hi-0uG" id="l5I-QS-TEu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="354"/>
+        </scene>
+    </scenes>
+</document>
